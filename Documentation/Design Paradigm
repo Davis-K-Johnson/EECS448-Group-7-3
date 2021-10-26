@@ -1,0 +1,20 @@
+Project 3 will be service-oriented. We're making an application to be used on an individual's
+PC, so it's a natural fit. It's entirely self contained and requires no coding knowledge on
+the part of the user. They just open their executable and it shows the relevant cryptocurrency
+information.
+
+It also has very clear goals in terms of what it offers to the user. It has one job: displaying
+information about crypto stocks. That's a very relevant service for many people, so there's a
+niche to fill here. We'll also be implementing other features such as a search bar, email
+notifications, and other APIs such as WoW tokens in project 4.
+
+It will be communicating with various other online services and API's which store this data, which
+we'll be gathering and displaying in a UI that's easy for a user with no experience to understand.
+It will have graphs to track the data, a list of the 10 biggest winners and losers over a time
+period. Because of this, we're really only making the component that relays the info to the user.
+
+This lines up with the service-oriented goal of having a black box that relies on other interconnected
+elements to allow for the consumer's front end to function. It's a lot less work than if we had to make
+all of is from scratch since all of the data is already there. All we have to do is find a way to access
+it and show it to the target audience in a way that they can understand, even if they can't figure out
+how to get into the API's themselves.
