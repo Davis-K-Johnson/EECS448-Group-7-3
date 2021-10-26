@@ -1,0 +1,123 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Tracker</title>
+  <meta name="description" content="A simple dashboard for viewing stock prices.">
+  <meta name="author" content="EECS 448 Team 7">
+  <link rel="stylesheet" href="css/styles.css?v=1.0">
+  <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+
+</head>
+
+<body>
+  <script src="js/scripts.js"></script>
+  <div class="sidebar">
+      <div class="site-name">
+          <h1><i class="bx bx-wallet"></i>Tracker</h1>
+      </div>
+      <div class="nav-div">
+        <ul class="nav-list">
+            <li>
+                <a href="#">
+                    <i class="bx bx-search"></i>
+                    <input type="text" placeholder="AMZN, APPL...">
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="bx bxs-dashboard"></i>
+                    <span class="link-name">Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="bx bxs-cog"></i>
+                    <span class="link-name">Settings</span>
+                </a>
+            </li>
+        </ul>
+      </div>
+  </div>
+  <div class="dashboard-content">
+      <div class="watch-div">
+          <h1 class="watch-header">Watch List</h1>
+          <ul class ="watch-list">
+            <li>
+                <a href="#">
+                    <span>&ensp;</span>
+                    <span class="stock-name">AMZN</span><span>&emsp;</span>
+                    <span class="stock-price">3,320.37</span><span>&emsp;</span>
+                    <span class="stock-change-usd">-15.18</span><span>&ensp;</span>
+                    <span class="stock-change-percent">(0.46%)</span><span>&ensp;</span>
+                    <span class="stock-timescale">today</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span>&ensp;</span>
+                    <span class="stock-name">APPL</span><span>&emsp;</span>
+                    <span class="stock-price">3,320.37</span><span>&emsp;</span>
+                    <span class="stock-change-usd">-15.18</span><span>&ensp;</span>
+                    <span class="stock-change-percent">(0.46%)</span><span>&ensp;</span>
+                    <span class="stock-timescale">today</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span>&ensp;</span>
+                    <span class="stock-name">TSLA</span><span>&emsp;</span>
+                    <span class="stock-price">3,320.37</span><span>&emsp;</span>
+                    <span class="stock-change-usd">-15.18</span><span>&ensp;</span>
+                    <span class="stock-change-percent">(0.46%)</span><span>&ensp;</span>
+                    <span class="stock-timescale">today</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span>&ensp;</span>
+                    <span class="stock-name">TMUS</span><span>&emsp;</span>
+                    <span class="stock-price">3,320.37</span><span>&emsp;</span>
+                    <span class="stock-change-usd">-15.18</span><span>&ensp;</span>
+                    <span class="stock-change-percent">(0.46%)</span><span>&ensp;</span>
+                    <span class="stock-timescale">today</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span>&ensp;</span>
+                    <span class="stock-name">TWTR</span><span>&emsp;</span>
+                    <span class="stock-price">3,320.37</span><span>&emsp;</span>
+                    <span class="stock-change-usd">-15.18</span><span>&ensp;</span>
+                    <span class="stock-change-percent">(0.46%)</span><span>&ensp;</span>
+                    <span class="stock-timescale">today</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="bx bxs-plus-square"></i>
+                </a>
+            </li>
+          </div>
+      </div>
+      <div class="graph-viewer">
+          <div class="graph-header">
+              <span class="graph-stock-name">S&P 500</span>
+              <a class="graph-list-status" href="#">&ensp;ADD TO LIST&ensp;</a>
+              <span>&ensp;</span>
+              <span class="stock-price">4,566.48</span>
+              <span>&ensp;</span>
+              <span class="stock-change-usd">+21.58</span>
+              <span class="stock-change-percent">(0.47%)</span>
+              <span class="stock-timescale">today</span>
+          </div>
+          <div class="graph-body">
+            <span>graph goes here</span>
+        </div>
+      </div>
+  </div>
+</body>
+</html>

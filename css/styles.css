@@ -1,0 +1,267 @@
+/* Google Font Quicksand */
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Quicksand", sans-serif;
+}
+
+body{
+    position: relative;
+    min-height: 100vh;
+    width: 100%;
+    overflow: hidden;
+}
+
+.sidebar{
+    position: fixed;
+    top: 1%;
+    left: 10px;
+    background: #C9D3DC;
+    height: 98%;
+    width: 230px;
+    padding: 6px 14px;
+    border-radius: 6px;
+}
+
+.sidebar .site-name {
+    color: #0B111F;
+    display: flex;
+    height: 50px;
+    width: 100%;
+    align-items: center;
+    user-select: none;
+}
+
+.sidebar .site-name i{
+    font-size: 30px;
+    margin-right: 5px;
+    color: #0B111F;
+}
+
+.sidebar .site-name h1{
+    font-size: 36px;
+    font-weight: 600;
+}
+
+.sidebar ul{
+    margin-top: 20px;
+}
+
+.sidebar ul li{
+    list-style: none;
+    height: 50px;
+    width: 100%;
+    position: relative;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+.sidebar ul li input{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    border-radius: 6px;
+    outline: none;
+    border: none;
+    background: #FFFFFF;
+    padding-left: 50px;
+    font-size: 24px;
+    font-weight: 500;
+    color: #0B111F;
+}
+
+.sidebar ul li .bx-search{
+    position: relative;
+    z-index: 99;
+    color: #0B111F;
+    font-size: 32px;
+}
+
+.sidebar ul li a{
+    font-size: 24px;
+    font-weight: 500;
+    color: #0B111F;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    transition: all 0.4s ease;
+    border-radius: 6px;
+    user-select: none;
+}
+
+.sidebar ul li a:hover{
+    background: #fff;
+    color: #0B111F;
+}
+
+.sidebar ul li i{
+    height: 50px;
+    min-width: 50px;
+    border-radius: 12px;
+    line-height: 50px;
+    text-align: center;
+    font-size: 32px;
+}
+
+.dashboard-content{
+    position: absolute;
+    height: 100%;
+    width: calc(100% - 240px);
+    left: 245px;
+    background: #FFFFFF;
+}
+
+.watch-div{
+    position: absolute;
+    height: 92%;
+    width: 480px;
+    padding: 6px 14px;
+    
+}
+
+.watch-div .watch-header{
+    top: 100px;
+    color: #0B111F;
+    display: flex;
+    align-items: center;
+    vertical-align: middle;
+    width: 100%;
+    font-size: 36px;
+    font-weight: 600;
+    user-select: none;
+}
+
+.watch-div ul{
+    margin-top: 20px;
+    height: 99.75%;
+    background: #C9D3DC;
+    border-radius: 6px;
+}
+
+.watch-div ul li{
+    list-style: none;
+    height: 80px;
+    width: 98%;
+    position: relative;
+    margin-bottom: 5px;
+    margin-left: 5px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+
+.watch-div ul li a{
+    font-weight: 500;
+    color: #0B111F;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    transition: all 0.4s ease;
+    border-radius: 6px;
+    height: 100%;
+    user-select: none;
+}
+
+.watch-div ul li a:hover{
+    background: #fff;
+    color: #0B111F;
+}
+
+.watch-div ul{
+    margin-top: 20px;
+}
+
+.watch-div ul li .bxs-plus-square{
+    position: relative;
+    z-index: 99;
+    color: #0B111F;
+    font-size: 32px;
+    height: 50px;
+    min-width: 95%;
+    border-radius: 12px;
+    line-height: 50px;
+    text-align: center;
+}
+
+.watch-div ul li .stock-name{
+    font-size: 24px;
+}
+
+.watch-div ul li .stock-price{
+    font-size: 24px;
+}
+
+.watch-div ul li .stock-change-usd{
+    color: #FF0D2C;
+    font-size: 24px;
+}
+
+.watch-div ul li .stock-change-percent{
+    color: #FF0D2C;
+    font-size: 24px;
+}
+
+.watch-div ul li .stock-timescale{
+    font-size: 24px;
+}
+
+.graph-viewer{
+    position: absolute;
+    height: 92%;
+    width: calc(100% - 715px);
+    padding: 6px 14px;
+    left: 715px;
+    margin-right: 20px;
+}
+
+.graph-viewer .graph-header{
+    font-size: 36px;
+    font-weight: 500;
+    color: #0B111F;
+    user-select: none;
+    align-items: center;
+}
+
+.graph-viewer .graph-header a{
+    text-decoration: none;
+    transition: all 0.4s ease;
+    border-radius: 6px;
+    user-select: none;
+    align-items: center;
+}
+
+.graph-viewer .graph-header a:hover{
+    background: #fff;
+    color: #0B111F;
+}
+
+.graph-viewer .graph-header .graph-list-status{
+    font-size: 18px;
+    background: #0B111F;
+    color: #fff;
+    border-radius: 6px;
+    user-select: none;
+}
+
+.graph-viewer .graph-header .stock-change-usd{
+    color: #00CC3A;
+    user-select: none;
+}
+
+.graph-viewer .graph-header .stock-change-percent{
+    color: #00CC3A;
+    user-select: none;
+}
+
+.graph-viewer .graph-body{
+    margin-top: 20px;
+    background: #C9D3DC;
+    width: 100%;
+    height: 99.5%;
+    padding: 6px 14px;
+    border-radius: 6px;
+}
