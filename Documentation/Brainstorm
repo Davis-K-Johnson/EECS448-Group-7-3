@@ -1,0 +1,39 @@
+Getting Stock and Crypto Historic Data
+--Polygon.io
+----Stocks
+------/v2/aggs/ticker/{stocksTicker}/range/{multiplier}/{timespan}/{from}/{to}
+------Under: Stock API / Aggragets (Bars) in polygon documentation
+----Crypto
+------/v2/aggs/ticker/{cryptoTicker}/range/{multiplier}/{timespan}/{from}/{to}
+------Under: Crypto API / Aggragets (Bars) in polygon documentation
+----Aggraget Parameters
+------1 Day Data
+--------Multiplier = 5
+--------Timespan = "minute"
+--------From = Todays Date ("YYYY-MM-DD")
+--------To = Todays Date ("YYYY-MM-DD")
+------5 Day Data
+--------Multiplier = 30
+--------Timespan = "minute"
+--------From = Week Ago Date ("YYYY-MM-DD")
+--------To = Todays Date ("YYYY-MM-DD")
+------1 Month Data
+--------Multiplier = 1
+--------Timespan = "day"
+--------From = Month Ago Date ("YYYY-MM-DD")
+--------To = Todays Date ("YYYY-MM-DD")
+------3 Month Data
+--------Multiplier = 2
+--------Timespan = "day"
+--------From = 3 Months Ago Date ("YYYY-MM-DD")
+--------To = Todays Date ("YYYY-MM-DD")
+------6 Month Data
+--------Multiplier = 3
+--------Timespan = "day"
+--------From = 6 Months Ago Date ("YYYY-MM-DD")
+--------To = Todays Date ("YYYY-MM-DD")
+------1 Year Data
+--------Multiplier = 1
+--------Timespan = "day"
+--------From = 3 Months Ago Date ("YYYY-MM-DD")
+--------To = Todays Date ("YYYY-MM-DD")
