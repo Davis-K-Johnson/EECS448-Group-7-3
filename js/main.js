@@ -13,7 +13,7 @@
  ***************************************************/
 
 // DOMContentLoaded
-// Pull and initialize data for 
+// Set up event listeners, then pull and initialize data for UI
 document.addEventListener("DOMContentLoaded", () => { 
     console.log("DOMContentLoaded test")
 
@@ -41,21 +41,32 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // Event Listener Handler Function for Search Bar Button
 function handleSearchBtnClick(e) {
-    console.log("searchBtn clicked!");
+    console.log("searchBtn clicked or searchBar keydown == Enter!");
 }
 
 // Event Delegation Handler Function for WatchList Currency Buttons
 function handleWatchListClick(e) {
-    // e.target is the clicked element!
-    // If it was a list item
+    let id;
     if(e.target && e.target.nodeName == "A") {
-        // List item found!  Output the ID!
-        console.log("A type item was clicked!");
-        console.log(e.target);
+        id = e.target.id;
+        console.log(id);
     }
     else if (e.target && e.target.nodeName == "SPAN") {
-        console.log("span type item was clicked!");
-        console.log(e.target.parentElement);
+        id = e.target.parentElement.id;
+        console.log(id);
+    }
+    else if (e.target && e.target.nodeName == "I") {
+        id = e.target.parentElement.id;
+        console.log(id);
+    }
+
+    if (id) {
+        if (id == "AddToWatchListBtn") {
+            console.log("Clicked AddToWatchListBtn element");
+        }
+        else {
+            console.log("Clicked Ticker element");
+        }
     }
 }
 
