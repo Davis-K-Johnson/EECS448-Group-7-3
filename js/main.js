@@ -17,6 +17,12 @@
 document.addEventListener("DOMContentLoaded", () => { 
     console.log("DOMContentLoaded test")
 
+    // Event Listener for Search Bar Button
+    document.getElementById("searchBtn").addEventListener("click", (e) => handleSearchBtnClick(e));
+    document.getElementById("searchBar").addEventListener("keydown", (e) => {
+        if (e.key == "Enter") { handleSearchBtnClick(e) }
+    });
+
     // Event Delegation for Watch List UL element
     document.getElementById("watch-list").addEventListener("click", (e) => handleWatchListClick(e));
 });
@@ -33,9 +39,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // Event Listener Function for 1 Year Button
 
-// Event Listener Function for Search Bar Button
+// Event Listener Handler Function for Search Bar Button
+function handleSearchBtnClick(e) {
+    console.log("searchBtn clicked!");
+}
 
-// Event Listener Function for WatchList Currency Buttons
+// Event Delegation Handler Function for WatchList Currency Buttons
 function handleWatchListClick(e) {
     // e.target is the clicked element!
     // If it was a list item
