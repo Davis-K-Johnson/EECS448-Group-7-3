@@ -16,6 +16,8 @@
 // Set up event listeners, then pull and initialize data for UI
 document.addEventListener("DOMContentLoaded", () => { 
     console.log("DOMContentLoaded test")
+    getTodayBasicAPPLData();
+    getIntradayAPPLData();
 
     // Event Listener for Search Bar Button
     document.getElementById("searchBtn").addEventListener("click", (e) => handleSearchBtnClick(e));
@@ -47,18 +49,9 @@ function handleSearchBtnClick(e) {
 // Event Delegation Handler Function for WatchList Currency Buttons
 function handleWatchListClick(e) {
     let id;
-    if(e.target && e.target.nodeName == "A") {
-        id = e.target.id;
-        console.log(id);
-    }
-    else if (e.target && e.target.nodeName == "SPAN") {
-        id = e.target.parentElement.id;
-        console.log(id);
-    }
-    else if (e.target && e.target.nodeName == "I") {
-        id = e.target.parentElement.id;
-        console.log(id);
-    }
+    if(e.target && e.target.nodeName == "A")          { id = e.target.id; }
+    else if (e.target && e.target.nodeName == "SPAN") { id = e.target.parentElement.id; }
+    else if (e.target && e.target.nodeName == "I")    { id = e.target.parentElement.id; }
 
     if (id) {
         if (id == "AddToWatchListBtn") {
