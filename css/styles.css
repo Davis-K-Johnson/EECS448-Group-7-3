@@ -1,6 +1,10 @@
 /* Google Font Quicksand */
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
 
+html{
+    overflow-y: scroll;
+}
+
 *{
     margin: 0;
     padding: 0;
@@ -13,139 +17,156 @@ body{
     min-height: 100vh;
     width: 100%;
     overflow: hidden;
+    background: #F2F2F2;
 }
 
-.sidebar{
-    position: fixed;
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 10%;
+    border-radius: 27px;
+    background: #0B111F;
+    height: 7%;
+    width: 90%;
     top: 1%;
-    left: 10px;
-    background: #C9D3DC;
-    height: 98%;
-    width: 230px;
-    padding: 6px 14px;
-    border-radius: 6px;
+    left: 5%;
+    position: fixed;
+    box-shadow: 0px 4px 8px grey;
+    z-index: 99;
 }
 
-.sidebar .site-name {
-    color: #0B111F;
+header .header-logo {
+    color: #fff;
     display: flex;
     height: 50px;
-    width: 100%;
+    width: 33%;
     align-items: center;
     user-select: none;
 }
 
-.sidebar .site-name i{
-    font-size: 30px;
-    margin-right: 5px;
-    color: #0B111F;
+header .header-logo i{
+    font-size: 40px;
+    color: #fff;
+    display: inline-block;
 }
 
-.sidebar .site-name h1{
-    font-size: 36px;
+header .header-logo h1{
+    font-size: 42px;
     font-weight: 600;
 }
-
-.sidebar ul{
-    margin-top: 20px;
+header .header-search{
+    position: relative;
+    width: 33%;
 }
 
-.sidebar ul li{
-    list-style: none;
-    height: 50px;
+header .header-search input{
     width: 100%;
     position: relative;
-    padding-bottom: 20px;
-    margin-bottom: 20px;
-}
-
-.sidebar ul li input{
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    left: 0;
     top: 0;
-    border-radius: 6px;
+    border-radius: 15px;
     outline: none;
     border: none;
     background: #FFFFFF;
-    padding-left: 50px;
-    font-size: 24px;
+    padding-left: 14%;
+    font-size: 34px;
     font-weight: 500;
     color: #0B111F;
+    display: inline-block;
 }
 
-.sidebar ul li .bx-search{
+header .header-search .bx-search{
     position: relative;
+    display: inline-block;
+    position: absolute;
+    padding-left: 3%;
+    padding-top: 1%;
     z-index: 99;
     color: #0B111F;
-    font-size: 32px;
-}
-
-.sidebar ul li a{
-    font-size: 24px;
+    font-size: 36px;
     font-weight: 500;
-    color: #0B111F;
-    display: flex;
     align-items: center;
     text-decoration: none;
     transition: all 0.4s ease;
-    border-radius: 6px;
+    border-radius: 15px;
+}
+
+header .header-settings{
+    padding-left: 250px;
+    width: 33%;
+    display: inline-block;
+    position: relative;
+}
+
+header .header-settings .bxs-cog{
+    display: inline-block;  
+    font-size: 34px;
+}
+
+header .header-settings .header-link{
+    display: inline-block;
+    font-size: 34px;
+    font-weight: 600;
+}
+
+
+
+header .header-settings a{
+    width: 90%;
+    font-weight: 500;
+    color: #fff;
+    display: inline-block;
+    align-items: center;
+    text-decoration: none;
+    transition: all 0.4s ease;
+    border-radius: 15px;
     user-select: none;
 }
 
-.sidebar ul li a:hover{
+header .header-settings a:hover{
     background: #fff;
     color: #0B111F;
 }
 
-.sidebar ul li i{
-    height: 50px;
-    min-width: 50px;
-    border-radius: 12px;
-    line-height: 50px;
-    text-align: center;
-    font-size: 32px;
+#watch-highlight{
+    margin-top: 100px;
+    margin-left: 5%;
+    position: relative;
+    height: 830px;
+    width: 90%;
 }
 
-.dashboard-content{
-    position: absolute;
-    height: 100%;
-    width: calc(100% - 240px);
-    left: 245px;
-    background: #FFFFFF;
+#watch-div{
+    position: relative;
+    width: 39%;
+    height: 775px;
+    display: inline-block;
+    vertical-align: top;
+    padding-right: 14px;
 }
 
-.watch-div{
-    position: absolute;
-    height: 92%;
-    width: 480px;
-    padding: 6px 14px;
-    
-}
-
-.watch-div .watch-header{
-    top: 100px;
+#watch-div #watch-header{
+    width: 100%;
     color: #0B111F;
-    display: flex;
+    position: relative;
     align-items: center;
     vertical-align: middle;
-    width: 100%;
     font-size: 36px;
     font-weight: 600;
     user-select: none;
 }
 
-.watch-div ul{
-    margin-top: 20px;
-    height: 99.75%;
+#watch-div ul{
+    position: relative;
+    height: 100%;
     background: #C9D3DC;
-    border-radius: 6px;
+    border-radius: 15px;
+    box-shadow: 0px 4px 8px grey;
 }
 
-.watch-div ul li{
+#watch-div ul li{
     list-style: none;
-    height: 80px;
+    height: 60px;
     width: 98%;
     position: relative;
     margin-bottom: 5px;
@@ -154,79 +175,83 @@ body{
     padding-top: 5px;
 }
 
-.watch-div ul li a{
-    font-weight: 500;
+#watch-div ul li a{
+    font-weight: 600;
     color: #0B111F;
     display: flex;
+    position: relative;
     align-items: center;
     text-decoration: none;
     transition: all 0.4s ease;
-    border-radius: 6px;
+    border-radius: 15px;
     height: 100%;
     user-select: none;
 }
 
-.watch-div ul li a:hover{
+#watch-div ul li a:hover{
     background: #fff;
     color: #0B111F;
 }
 
-.watch-div ul{
-    margin-top: 20px;
+#watch-div ul{
+    position: relative;
+    margin-top: 5px;
 }
 
-.watch-div ul li .bxs-plus-square{
+#watch-div ul li .bxs-plus-square{
     position: relative;
     z-index: 99;
     color: #0B111F;
     font-size: 32px;
     height: 50px;
     min-width: 95%;
-    border-radius: 12px;
+    border-radius: 15px;
     line-height: 50px;
     text-align: center;
+    display: inline-block;
 }
 
-.watch-div ul li .stock-name{
+#watch-div ul li .stock-name{
     font-size: 24px;
 }
 
-.watch-div ul li .stock-price{
+#watch-div ul li .stock-price{
     font-size: 24px;
 }
 
-.watch-div ul li .stock-change-usd{
+#watch-div ul li .stock-change-usd{
     color: #FF0D2C;
     font-size: 24px;
 }
 
-.watch-div ul li .stock-change-percent{
+#watch-div ul li .stock-change-percent{
     color: #FF0D2C;
     font-size: 24px;
 }
 
-.watch-div ul li .stock-timescale{
+#watch-div ul li .stock-timescale{
     font-size: 24px;
 }
 
-.graph-viewer{
-    position: absolute;
-    height: 92%;
-    width: calc(100% - 715px);
-    padding: 6px 14px;
-    left: 715px;
-    margin-right: 20px;
+#graph-viewer{
+    position: relative;
+    width: 60%;
+    height: 775px;
+    display: inline-block;
+    border-radius: 15px;
 }
 
-.graph-viewer .graph-header{
+#graph-viewer #graph-header{
     font-size: 36px;
-    font-weight: 500;
+    font-weight: 600;
     color: #0B111F;
     user-select: none;
     align-items: center;
 }
 
-.graph-viewer .graph-header a{
+#graph-viewer #graph-header a{
+    font-size: 36px;
+    font-weight: 600;
     text-decoration: none;
     transition: all 0.4s ease;
     border-radius: 6px;
@@ -234,12 +259,12 @@ body{
     align-items: center;
 }
 
-.graph-viewer .graph-header a:hover{
+#graph-viewer #graph-header a:hover{
     background: #fff;
     color: #0B111F;
 }
 
-.graph-viewer .graph-header .graph-list-status{
+#graph-viewer #graph-header #graph-list-status{
     font-size: 18px;
     background: #0B111F;
     color: #fff;
@@ -247,21 +272,212 @@ body{
     user-select: none;
 }
 
-.graph-viewer .graph-header .stock-change-usd{
+#graph-viewer #graph-header #graph-change-usd{
     color: #00CC3A;
     user-select: none;
 }
 
-.graph-viewer .graph-header .stock-change-percent{
+#graph-viewer #graph-header #graph-change-percent{
     color: #00CC3A;
     user-select: none;
 }
 
-.graph-viewer .graph-body{
-    margin-top: 20px;
+#graph-viewer #graph-body{
+    margin-top: 5px;
     background: #C9D3DC;
     width: 100%;
-    height: 99.5%;
-    padding: 6px 14px;
+    height: 100%;
+    border-radius: 15px;
+    box-shadow: 0px 4px 8px grey;
+}
+
+#graph-viewer #graph-canvas{
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    height: 500px;
+    background: #0B111F;
+    border-radius: 15px;
+}
+
+#graph-viewer #graph-buttons{
+    display: inline-block;
+}
+
+#graph-viewer #graph-buttons ul{
+    position: relative;
+    width: 100%;
+    height: 100px;
+    display: inline-block;
+    text-decoration: none;
+    list-style: none;
+    margin-left: 10%;
+}
+
+#graph-viewer #graph-buttons ul li{
+    position: relative;
+    width: 150px;
+    height: 65px;
+    display: inline-block;
+    text-decoration: none;
+    list-style: none;
+    border-radius: 15px;
+    padding-right: 25px;
+    background: #0B111F;
+    vertical-align: top;
+}
+
+#graph-viewer #graph-buttons ul li a{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    color: #fff;
+    display: inline-block;
+    text-decoration: none;
+    list-style: none;
+    padding-left: 1%;
+    padding-right: 1%;
+    border-radius: 15px;
+    font-size: 28px;
+    font-weight: 600;
+    transition: all 0.4s ease;
+    vertical-align: middle;
+}
+
+#graph-viewer #graph-buttons ul li a:hover{
+    color: #0B111F;
+    background: #fff;
+}
+
+#gain-lose-news{
+    margin-top: 100px;
+    margin-left: 5%;
+    position: relative;
+    height: 830px;
+    width: 90%;
+    margin-bottom: 10px;
+}
+
+#gain-lose{
+    position: relative;
+    width: 39%;
+    height: 775px;
+    display: inline-block;
+    vertical-align: top;
+    padding-right: 14px;
+}
+
+#gain-lose #gain-lose-header{
+    width: 100%;
+    color: #0B111F;
+    position: relative;
+    align-items: center;
+    vertical-align: middle;
+    font-size: 36px;
+    font-weight: 600;
+    user-select: none;
+}
+
+#gain-lose ul{
+    position: relative;
+    height: 100%;
+    background: #C9D3DC;
+    border-radius: 15px;
+    box-shadow: 0px 4px 8px grey;
+}
+
+#gain-lose ul li{
+    list-style: none;
+    height: 60px;
+    width: 98%;
+    position: relative;
+    margin-bottom: 5px;
+    margin-left: 5px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+
+#gain-lose ul li a{
+    font-weight: 600;
+    color: #0B111F;
+    display: flex;
+    position: relative;
+    align-items: center;
+    text-decoration: none;
+    transition: all 0.4s ease;
+    border-radius: 15px;
+    height: 100%;
+    user-select: none;
+}
+
+#gain-lose ul li a:hover{
+    background: #fff;
+    color: #0B111F;
+}
+
+#gain-lose ul{
+    position: relative;
+    margin-top: 5px;
+}
+
+#gain-lose ul li .stock-name{
+    font-size: 24px;
+}
+
+#gain-lose ul li .stock-price{
+    font-size: 24px;
+}
+
+#gain-lose ul li .stock-change-usd{
+    color: #FF0D2C;
+    font-size: 24px;
+}
+
+#gain-lose ul li .stock-change-percent{
+    color: #FF0D2C;
+    font-size: 24px;
+}
+
+#gain-lose ul li .stock-timescale{
+    font-size: 24px;
+}
+
+#market-news{
+    position: relative;
+    width: 60%;
+    height: 775px;
+    display: inline-block;
+    border-radius: 15px;
+}
+
+#market-news #market-news-header h1{
+    font-size: 36px;
+    font-weight: 600;
+    color: #0B111F;
+    user-select: none;
+    align-items: center;
+}
+
+#market-news #market-news-header a{
+    font-size: 36px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.4s ease;
     border-radius: 6px;
+    user-select: none;
+    align-items: center;
+}
+
+#market-news #market-news-header a:hover{
+    background: #fff;
+    color: #0B111F;
+}
+
+#market-news #market-news-content{
+    margin-top: 5px;
+    background: #C9D3DC;
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    box-shadow: 0px 4px 8px grey;
 }

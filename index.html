@@ -16,39 +16,138 @@
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script src="js/APIs.js"></script>
   <script src="js/main.js"></script>
-  
-
-  <div class="sidebar">
-      <div class="site-name">
-          <h1><i class="bx bx-wallet"></i>Tracker</h1>
+  <header>
+    <div class="header-logo">
+        <h1><i class="bx bx-wallet"></i>Tracker</h1>
+    </div>
+    <div class="header-search">
+        <a href="#">
+            <i class="bx bx-search"></i>
+            <input type="text" placeholder="AMZN, APPL...">
+        </a>
+    </div>
+    <div class="header-settings">
+        <a href="#">
+            <i class="bx bxs-cog"></i>
+            <span class="header-link">Settings</span>
+        </a>
+    </div>
+  </header>
+  <section id="watch-highlight">
+      <div id="watch-div">
+          <h1 id="watch-header">Watch List</h1>
+          <ul id="watch-list">
+            <li>
+                <a href="#">
+                    <span>&ensp;</span>
+                    <span class="stock-name">AMZN</span><span>&emsp;</span>
+                    <span class="stock-price">3,320.37</span><span>&emsp;</span>
+                    <span class="stock-change-usd">-15.18</span><span>&ensp;</span>
+                    <span class="stock-change-percent">(0.46%)</span><span>&ensp;</span>
+                    <span class="stock-timescale">today</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span>&ensp;</span>
+                    <span class="stock-name">APPL</span><span>&emsp;</span>
+                    <span class="stock-price">3,320.37</span><span>&emsp;</span>
+                    <span class="stock-change-usd">-15.18</span><span>&ensp;</span>
+                    <span class="stock-change-percent">(0.46%)</span><span>&ensp;</span>
+                    <span class="stock-timescale">today</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span>&ensp;</span>
+                    <span class="stock-name">TSLA</span><span>&emsp;</span>
+                    <span class="stock-price">3,320.37</span><span>&emsp;</span>
+                    <span class="stock-change-usd">-15.18</span><span>&ensp;</span>
+                    <span class="stock-change-percent">(0.46%)</span><span>&ensp;</span>
+                    <span class="stock-timescale">today</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span>&ensp;</span>
+                    <span class="stock-name">TMUS</span><span>&emsp;</span>
+                    <span class="stock-price">3,320.37</span><span>&emsp;</span>
+                    <span class="stock-change-usd">-15.18</span><span>&ensp;</span>
+                    <span class="stock-change-percent">(0.46%)</span><span>&ensp;</span>
+                    <span class="stock-timescale">today</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span>&ensp;</span>
+                    <span class="stock-name">TWTR</span><span>&emsp;</span>
+                    <span class="stock-price">3,320.37</span><span>&emsp;</span>
+                    <span class="stock-change-usd">-15.18</span><span>&ensp;</span>
+                    <span class="stock-change-percent">(0.46%)</span><span>&ensp;</span>
+                    <span class="stock-timescale">today</span>
+                </a>
+            </li>
+            <li>
+                <a id="AddToWatchListBtn" href="#">
+                    <i class="bx bxs-plus-square"></i>
+                </a>
+            </li>
+          </ul>
       </div>
-      <div class="nav-div">
-        <ul class="nav-list">
-            <li>
-                <a href="#">
-                    <i id="searchBtn" class="bx bx-search"></i>
-                    <input id="searchBar" type="text" placeholder="AMZN, APPL...">
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <i class="bx bxs-dashboard"></i>
-                    <span class="link-name">Dashboard</span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <i class="bx bxs-cog"></i>
-                    <span class="link-name">Settings</span>
-                </a>
-            </li>
-        </ul>
+      <div id="graph-viewer">
+        <div id="graph-header">
+            <span id="graph-stock-name">S&P 500</span>
+            <a id="graph-list-status" href="#">&ensp;ADD TO LIST&ensp;</a>
+            <span>&ensp;</span>
+            <span id="graph-price">4,566.48</span>
+            <span>&ensp;</span>
+            <span id="graph-change-usd">+21.58</span>
+            <span id="graph-change-percent">(0.47%)</span>
+            <span id="graph-timescale">today</span>
+        </div>
+        <div id="graph-body">
+          <canvas id="graph-canvas"></canvas>
+          <div id="graph-buttons">
+            <ul>
+                <li>
+                    <a href="#">
+                        <i id="day-btn">Day</i>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i id="five-day-btn">5 day</i>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i id="month-btn">1 Month</i>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i id="three-month-btn">3 Months</i>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i id="six-month-btn">6 Months</i>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i id="year-btn">Year</i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        </div>
       </div>
-  </div>
-  <div class="dashboard-content">
-      <div class="watch-div">
-          <h1 class="watch-header">Watch List</h1>
-          <ul class ="watch-list" id="watch-list">
+    </section>
+    <section id="gain-lose-news">
+        <div id="gain-lose">
+          <h1 id="gain-lose-header">Top Gainers & Losers</h1>
+          <ul id="gain-lose-list">
             <li>
                 <a id="AMZN" href="#">
                     <span>&ensp;</span>
@@ -100,27 +199,65 @@
                 </a>
             </li>
             <li>
-                <a id="AddToWatchListBtn" href="#">
-                    <i class="bx bxs-plus-square"></i>
+                <a href="#">
+                    <span>&ensp;</span>
+                    <span class="stock-name">TWTR</span><span>&emsp;</span>
+                    <span class="stock-price">3,320.37</span><span>&emsp;</span>
+                    <span class="stock-change-usd">-15.18</span><span>&ensp;</span>
+                    <span class="stock-change-percent">(0.46%)</span><span>&ensp;</span>
+                    <span class="stock-timescale">today</span>
                 </a>
             </li>
-          </div>
-      </div>
-      <div class="graph-viewer">
-          <div class="graph-header">
-              <span class="graph-stock-name">S&P 500</span>
-              <a class="graph-list-status" href="#">&ensp;ADD TO LIST&ensp;</a>
-              <span>&ensp;</span>
-              <span class="stock-price">4,566.48</span>
-              <span>&ensp;</span>
-              <span class="stock-change-usd">+21.58</span>
-              <span class="stock-change-percent">(0.47%)</span>
-              <span class="stock-timescale">today</span>
-          </div>
-          <div class="graph-body">
-            <span>graph goes here</span>
+            <li>
+                <a href="#">
+                    <span>&ensp;</span>
+                    <span class="stock-name">TWTR</span><span>&emsp;</span>
+                    <span class="stock-price">3,320.37</span><span>&emsp;</span>
+                    <span class="stock-change-usd">-15.18</span><span>&ensp;</span>
+                    <span class="stock-change-percent">(0.46%)</span><span>&ensp;</span>
+                    <span class="stock-timescale">today</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span>&ensp;</span>
+                    <span class="stock-name">TWTR</span><span>&emsp;</span>
+                    <span class="stock-price">3,320.37</span><span>&emsp;</span>
+                    <span class="stock-change-usd">-15.18</span><span>&ensp;</span>
+                    <span class="stock-change-percent">(0.46%)</span><span>&ensp;</span>
+                    <span class="stock-timescale">today</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span>&ensp;</span>
+                    <span class="stock-name">TWTR</span><span>&emsp;</span>
+                    <span class="stock-price">3,320.37</span><span>&emsp;</span>
+                    <span class="stock-change-usd">-15.18</span><span>&ensp;</span>
+                    <span class="stock-change-percent">(0.46%)</span><span>&ensp;</span>
+                    <span class="stock-timescale">today</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span>&ensp;</span>
+                    <span class="stock-name">TWTR</span><span>&emsp;</span>
+                    <span class="stock-price">3,320.37</span><span>&emsp;</span>
+                    <span class="stock-change-usd">-15.18</span><span>&ensp;</span>
+                    <span class="stock-change-percent">(0.46%)</span><span>&ensp;</span>
+                    <span class="stock-timescale">today</span>
+                </a>
+            </li>
+          </ul>
         </div>
-      </div>
-  </div>
+        <div id="market-news">
+            <div id="market-news-header">
+                <h1>Market News</h1>
+            </div>
+            <div id="market-news-content">
+
+            </div>
+        </div>
+    </section>
 </body>
 </html>
