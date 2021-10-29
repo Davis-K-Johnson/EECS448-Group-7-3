@@ -22,8 +22,8 @@
     </div>
     <div class="header-search">
         <a href="#">
-            <i class="bx bx-search"></i>
-            <input type="text" placeholder="AMZN, APPL...">
+            <i id="searchBtn" class="bx bx-search"></i>
+            <input id="searchBar" type="text" placeholder="AMZN, APPL...">
         </a>
     </div>
     <div class="header-settings">
@@ -38,7 +38,7 @@
           <h1 id="watch-header">Watch List</h1>
           <ul id="watch-list">
             <li>
-                <a href="#">
+                <a id="AMZN" href="#">
                     <span>&ensp;</span>
                     <span class="stock-name">AMZN</span><span>&emsp;</span>
                     <span class="stock-price">3,320.37</span><span>&emsp;</span>
@@ -48,7 +48,7 @@
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a id="APPL" href="#">
                     <span>&ensp;</span>
                     <span class="stock-name">APPL</span><span>&emsp;</span>
                     <span class="stock-price">3,320.37</span><span>&emsp;</span>
@@ -58,7 +58,7 @@
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a id="TSLA" href="#">
                     <span>&ensp;</span>
                     <span class="stock-name">TSLA</span><span>&emsp;</span>
                     <span class="stock-price">3,320.37</span><span>&emsp;</span>
@@ -68,7 +68,7 @@
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a id="TMUS" href="#">
                     <span>&ensp;</span>
                     <span class="stock-name">TMUS</span><span>&emsp;</span>
                     <span class="stock-price">3,320.37</span><span>&emsp;</span>
@@ -78,18 +78,13 @@
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a id="TWTR" href="#">
                     <span>&ensp;</span>
                     <span class="stock-name">TWTR</span><span>&emsp;</span>
                     <span class="stock-price">3,320.37</span><span>&emsp;</span>
                     <span class="stock-change-usd">-15.18</span><span>&ensp;</span>
                     <span class="stock-change-percent">(0.46%)</span><span>&ensp;</span>
                     <span class="stock-timescale">today</span>
-                </a>
-            </li>
-            <li>
-                <a id="AddToWatchListBtn" href="#">
-                    <i class="bx bxs-plus-square"></i>
                 </a>
             </li>
           </ul>
@@ -116,7 +111,7 @@
                 </li>
                 <li>
                     <a href="#">
-                        <i id="five-day-btn">5 day</i>
+                        <i id="five-day-btn">5 Day</i>
                     </a>
                 </li>
                 <li>
