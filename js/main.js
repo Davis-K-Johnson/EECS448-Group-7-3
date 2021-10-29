@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
     currencyHL = new Currency("APPL");
     updateCurrencyHLElements();
     currencies = BASE_WATCH_LIST.map(ticker => new Currency(ticker));
-    currencies.map(c => addToWatchList(c));
+    //currencies.map(c => addToWatchList(c));
 
 });
 
