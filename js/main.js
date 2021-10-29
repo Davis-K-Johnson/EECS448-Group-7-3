@@ -46,38 +46,62 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // Event Listener Function for 1 Day Button
+/**
+ * Handles a click on the 1 day button.
+ * @param {*} e 
+ */
 function handle1DayBtnClick(e) {
     console.log("1Day btn clicked!");
 }
 
 // Event Listener Function for 5 Day Button
+/**
+ * Handles a click on the 5 day button.
+ * @param {*} e 
+ */
 function handle5DayBtnClick(e) {
     console.log("5Day btn clicked!");
 }
 
 // Event Listener Function for 1 Month Button
+/**
+ * Handles a click on the 1 month button.
+ * @param {*} e 
+ */
 function handle1MonthBtnClick(e) {
     console.log("1Month btn clicked!");
 }
 
 // Event Listener Function for 3 Month Button
+/**
+ * Handles a click on the 3 month button.
+ * @param {*} e 
+ */
 function handle3MonthBtnClick(e) {
     console.log("3Month btn clicked!");
 }
 
 // Event Listener Function for 6 Month Button
+/**
+ * Handles a click on the 6 month button.
+ * @param {*} e 
+ */
 function handle6MonthBtnClick(e) {
     console.log("6Month btn clicked!");
 }
 
 // Event Listener Function for 1 Year Button
+/**
+ * Handles a click on the 1 year button.
+ * @param {*} e 
+ */
 function handle1YearBtnClick(e) {
     console.log("1Year btn clicked!");
 }
 
 // Event Listener Handler Function for Search Bar Button
 /**
- * Handles the effects of clicking on the search bar.
+ * Handles a click on the search bar.
  * @param {*} e 
  */
 function handleSearchBtnClick(e) {
@@ -86,7 +110,7 @@ function handleSearchBtnClick(e) {
 
 // Event Delegation Handler Function for WatchList Currency Buttons
 /**
- * Handles the effects of clicking on the watch list.
+ * Handles a click on the watch list.
  * @param {*} e 
  */
 function handleWatchListClick(e) {
@@ -100,6 +124,10 @@ function handleWatchListClick(e) {
 }
 
 // Event Listener Function for Add to WatchList Buttons
+/**
+ * handles a click on one of the "add to watchlist" buttons
+ * @param {*} e 
+ */
 function handleToggleWatchListClick(e) {
     console.log("Clicked graph-list-status element");
 }
