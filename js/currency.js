@@ -58,17 +58,30 @@ class Currency {
     }
 
     setOneDayTimeSeriesData(data) {
-
+        let closes = data["c"];
+        let times = data["t"];
+        let isos = times.map(t => UNIXtoISOConversion(t));
+        let gData = closes.map((c, i) => {return {t:isos[i], y:c}});
+        let bgc = CreateBackgroundColors(gData.length);
+        let bc = CreateBorderColors(gData.length);
+        this.OneDayTimeSeries = {
+            labels: isos,
+            datasets: [{
+            label: this.ticker,
+            data: gData,
+            backgroundColor: bgc,
+            borderColor: bc,
+            borderWidth: 1
+            }]
+        };
     }
-    
+
     /**
      * 
      * @returns 
      */
     getOneDayTimeSeriesData() {
-        // Redo once APIs.js has been updated
-        data = APIIntradayAPPLData();
-        return this.OneDayTimeSeriesData;
+        return this.OneDayTimeSeries;
     }
 
     /**

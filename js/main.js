@@ -39,11 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Currency Objects
     currencyHL = new Currency("APPL");
-    updateGraphHeader();
-    //currencyHL.setQuoteData();
-
-    // Update UI Data
-    updateGraphElements();
+    updateCurrencyHLElements();
 });
 
 // Event Listener Function for 1 Day Button
@@ -121,7 +117,7 @@ function handleWatchListClick(e) {
     else if (e.target && e.target.nodeName == "SPAN") { id = e.target.parentElement.id; }
 
     if (id) {
-        console.log("Clicked Ticker element");
+        console.log("Clicked " + id + " element");
     }
 }
 
@@ -138,7 +134,23 @@ function handleToggleWatchListClick(e) {
  * Highlighted Currency Functions
  ***************************************************/
 
-function updateGraphHeader() {
+function updateCurrencyHLElements() {
+    updateGraphHeader();
+    updateGraph();
+}
+
+/***************************************************
+ * Watch List Functions
+ ***************************************************/
+
+// WatchListToggle Function
+
+/***************************************************
+ * Graph Section Functions
+ ***************************************************/
+
+// Update Graph Header Function
+ function updateGraphHeader() {
     APITodayBasicAPPLData( function(data) {
         currencyHL.setQuoteData(data);
         updateGraphHeaderElements();
@@ -152,25 +164,32 @@ function updateGraphHeaderElements() {
     document.getElementById("graph-change-percent").innerText = currencyHL.getDayPercentChange();
 }
 
-/***************************************************
- * Watch List Functions
- ***************************************************/
-
-// WatchListToggle Function
-
-/***************************************************
- * Graphing Functions
- ***************************************************/
-
 // Update Graph Function
 function updateGraph() {
-
+    APIIntradayAPPLData( function(data) {
+        currencyHL.setOneDayTimeSeriesData(data);
+        console.log("updateGraph function!");
+        console.log(currencyHL.getOneDayTimeSeriesData());
+        updateGraphElements();
+    })
 }
 
 function updateGraphElements() {
     var ctx = document.getElementById("graph-canvas").getContext("2d");
 
     var myChart = new Chart(ctx, {
+        type: 'line',
+        options: {
+            scales: {
+            xAxes: [{
+                type: 'time',
+            }]
+            }
+        },
+        data: currencyHL.getOneDayTimeSeriesData()
+    });
+
+    /* var myChart = new Chart(ctx, {
     type: 'line',
     options: {
         scales: {
@@ -215,7 +234,7 @@ function updateGraphElements() {
         borderWidth: 1
         }]
     }
-    });
+    }); */
 }
 
 
