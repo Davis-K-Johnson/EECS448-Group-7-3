@@ -1,9 +1,7 @@
 class Currency {
     constructor(ticker) {
         this.ticker = ticker;
-        console.log("constructor");
         this.CurrentQuote = 0.0;
-        console.log(this.CurrentQuote);
         this.DayChange = 0.0;
         this.DayPercentChange = 0.0;
         this.DayOpen = 0.0;

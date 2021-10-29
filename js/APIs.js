@@ -22,3 +22,12 @@ function APIIntradayAPPLData(callback) {
         })
         .catch(error => console.error(error));
 }
+
+function APITodayQuoteData(ticker, callback) {
+    axios.get('https://finnhub.io/api/v1/quote?symbol=' + ticker + '&token=c5tho52ad3ifck7dg8fg')
+        .then(response => {
+            console.log(response.data);
+            callback(response.data);
+        })
+        .catch(error => console.error(error));
+}

@@ -7,6 +7,7 @@
 
 let currencyHL;
 let currencies;
+let BASE_WATCH_LIST = ["APPL", "AMZN", "TSLA", "TMUS", "TWTR"];
 
 /***************************************************
  * Event Listener Functions
@@ -40,6 +41,9 @@ document.addEventListener("DOMContentLoaded", () => {
     // Currency Objects
     currencyHL = new Currency("APPL");
     updateCurrencyHLElements();
+    currencies = BASE_WATCH_LIST.map(ticker => new Currency(ticker));
+    currencies.map(c => addToWatchList(c));
+
 });
 
 // Event Listener Function for 1 Day Button
@@ -145,6 +149,59 @@ function updateCurrencyHLElements() {
 
 // WatchListToggle Function
 
+// AddToWatchList Function
+function addToWatchList(currency) {
+    APITodayQuoteData(currency.getTicker(), function(data) {
+        currency.setQuoteData(data);
+        addWatchListElement(currency);
+    });
+}
+
+function addWatchListElement(currency) {
+    let li = document.createElement("li");
+    let a = document.createElement("a");
+    a.id = currency.getTicker();
+    a.href = "#";
+    let spanSpace = document.createElement("span");
+    let space = document.createTextNode("&ensp;");
+    spanSpace.appendChild(space);
+    let spanName = document.createElement("span");
+    let name = document.createTextNode(currency.getTicker());
+    spanName.className = "stock-name";
+    spanName.appendChild(name);
+    let spanPrice = document.createElement("span");
+    let price = document.createTextNode(currency.getCurrentQuote());
+    spanPrice.className = "stock-price";
+    spanPrice.appendChild(price);
+    let spanChangeUSD = document.createElement("span");
+    let changeUSD = document.createTextNode(currency.getDayChange());
+    spanChangeUSD.className = "stock-change-usd";
+    spanChangeUSD.appendChild(changeUSD);
+    let spanChangePercent = document.createElement("span");
+    let changePercent = document.createTextNode(currency.getDayPercentChange());
+    spanChangePercent.className = "stock-change-percent";
+    spanChangePercent.appendChild(changePercent);
+    let spanTimescale = document.createElement("span");
+    let timescale = document.createTextNode("today");
+    spanTimescale.className = "stock-timescale";
+    spanTimescale.appendChild(timescale);
+    a.appendChild(spanSpace);
+    a.appendChild(spanName);
+    a.appendChild(spanSpace);
+    a.appendChild(spanPrice);
+    a.appendChild(spanSpace);
+    a.appendChild(spanChangeUSD);
+    a.appendChild(spanSpace);
+    a.appendChild(spanChangePercent);
+    a.appendChild(spanSpace);
+    a.appendChild(spanTimescale);
+    li.appendChild(a);
+    let watchlist = document.getElementById("watch-list");
+    watchlist.appendChild(li);
+}
+
+// RemoveWatchListElement Function
+
 /***************************************************
  * Graph Section Functions
  ***************************************************/
@@ -188,53 +245,6 @@ function updateGraphElements() {
         },
         data: currencyHL.getOneDayTimeSeriesData()
     });
-
-    /* var myChart = new Chart(ctx, {
-    type: 'line',
-    options: {
-        scales: {
-        xAxes: [{
-            type: 'time',
-        }]
-        }
-    },
-    data: {
-        labels: ["2015-03-15T13:03:00Z", "2015-03-25T13:02:00Z", "2015-04-25T14:12:00Z"],
-        datasets: [{
-        label: 'Demo',
-        data: [{
-            t: '2015-03-15T13:03:00Z',
-            y: 12
-            },
-            {
-            t: '2015-03-25T13:02:00Z',
-            y: 21
-            },
-            {
-            t: '2015-04-25T14:12:00Z',
-            y: 32
-            }
-        ],
-        backgroundColor: [
-            'rgba(255, 99, 132, 0.2)',
-            'rgba(54, 162, 235, 0.2)',
-            'rgba(255, 206, 86, 0.2)',
-            'rgba(75, 192, 192, 0.2)',
-            'rgba(153, 102, 255, 0.2)',
-            'rgba(255, 159, 64, 0.2)'
-        ],
-        borderColor: [
-            'rgba(255,99,132,1)',
-            'rgba(54, 162, 235, 1)',
-            'rgba(255, 206, 86, 1)',
-            'rgba(75, 192, 192, 1)',
-            'rgba(153, 102, 255, 1)',
-            'rgba(255, 159, 64, 1)'
-        ],
-        borderWidth: 1
-        }]
-    }
-    }); */
 }
 
 
