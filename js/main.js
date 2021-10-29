@@ -42,11 +42,19 @@ document.addEventListener("DOMContentLoaded", () => {
 // Event Listener Function for 1 Year Button
 
 // Event Listener Handler Function for Search Bar Button
+/**
+ * Handles the effects of clicking on the search bar.
+ * @param {*} e 
+ */
 function handleSearchBtnClick(e) {
     console.log("searchBtn clicked or searchBar keydown == Enter!");
 }
 
 // Event Delegation Handler Function for WatchList Currency Buttons
+/**
+ * Handles the effects of clicking on the watch list.
+ * @param {*} e 
+ */
 function handleWatchListClick(e) {
     let id;
     if(e.target && e.target.nodeName == "A")          { id = e.target.id; }
