@@ -1,7 +1,9 @@
 class Currency {
     constructor(ticker) {
         this.ticker = ticker;
+        console.log("constructor");
         this.CurrentQuote = 0.0;
+        console.log(this.CurrentQuote);
         this.DayChange = 0.0;
         this.DayPercentChange = 0.0;
         this.DayOpen = 0.0;
@@ -13,24 +15,32 @@ class Currency {
         this.OneYearTimeSeries = [];
     }
 
-    setTicker(ticker) {
-        this.ticker = ticker;
-    }
-
     getTicker() {
         return this.ticker;
     }
 
     getCurrentQuote() {
-        return this.MostRecentQuote;
+        return this.CurrentQuote;
+    }
+
+    getDayChange() {
+        return this.DayChange;
+    }
+
+    getDayPercentChange() {
+        return this.DayPercentChange;
     }
 
     setQuoteData() {
-        data = APITodayBasicAPPLData();
-        this.CurrentQuote = data["c"];
-        this.DayChange = data["d"];
-        this.DayPercentChange = data["dp"];
-        this.DayOpen = data["o"];
+        let newData;
+        APITodayBasicAPPLData( function(data) {
+            console.log(data);
+            newData = data;
+        });
+        this.CurrentQuote = newData["c"];
+        this.DayChange = newData["d"];
+        this.DayPercentChange = newData["dp"];
+        this.DayOpen = newData["o"];
     }
 
     getOneDayTimeSeriesData() {

@@ -37,8 +37,12 @@ document.addEventListener("DOMContentLoaded", () => {
     // Event Listener for Add/Remove from Watch List Button
     document.getElementById("graph-list-status").addEventListener("click", (e) => handleToggleWatchListClick(e));
 
+    // Currency Objects
+    currencyHL = new Currency("APPL");
+    currencyHL.setQuoteData();
 
-    
+    // Update UI Data
+    //updateGraphHeader();
 });
 
 // Event Listener Function for 1 Day Button
@@ -93,6 +97,17 @@ function handleToggleWatchListClick(e) {
 }
 
 /***************************************************
+ * Highlighted Currency Functions
+ ***************************************************/
+
+function updateGraphHeader() {
+    document.getElementById("graph-stock-name").innerText = currencyHL.getTicker();
+    document.getElementById("graph-price").innerText = currencyHL.getCurrentQuote();
+    document.getElementById("graph-change-usd").innerText = currencyHL.getDayChange();
+    document.getElementById("graph-change-percent").innerText = currencyHL.getDayPercentChange();
+}
+
+/***************************************************
  * Watch List Functions
  ***************************************************/
 
@@ -102,9 +117,7 @@ function handleToggleWatchListClick(e) {
  * Graphing Functions
  ***************************************************/
 
-// Create Graph Function
-
-// Populate Graph Function
+// Update Graph Function
 
 /***************************************************
  * Search Bar Functions

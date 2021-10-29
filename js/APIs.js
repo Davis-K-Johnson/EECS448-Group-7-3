@@ -1,8 +1,8 @@
-function APITodayBasicAPPLData() {
+function APITodayBasicAPPLData(callback) {
     axios.get('https://finnhub.io/api/v1/quote?symbol=AAPL&token=c5tho52ad3ifck7dg8fg')
         .then(response => {
             console.log(response.data);
-            return response.data;
+            callback(response.data);
         })
         .catch(error => console.error(error));
 }
