@@ -316,32 +316,30 @@ header .header-settings a:hover{
 
 #graph-viewer #graph-buttons ul li{
     position: relative;
-    width: 150px;
-    height: 65px;
+    width: 140px;
+    height: 50px;
     display: inline-block;
     text-decoration: none;
     list-style: none;
     border-radius: 15px;
-    padding-right: 25px;
     background: #0B111F;
     vertical-align: top;
+    align-content: center;
 }
 
 #graph-viewer #graph-buttons ul li a{
-    width: 100%;
-    height: 100%;
+    width: 140px;
+    height: 50px;
     position: relative;
     color: #fff;
     display: inline-block;
     text-decoration: none;
     list-style: none;
-    padding-left: 1%;
-    padding-right: 1%;
     border-radius: 15px;
     font-size: 28px;
     font-weight: 600;
     transition: all 0.4s ease;
-    vertical-align: middle;
+    padding-left: 15px;
 }
 
 #graph-viewer #graph-buttons ul li a:hover{
