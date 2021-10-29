@@ -39,7 +39,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Currency Objects
     currencyHL = new Currency("APPL");
-    currencyHL.setQuoteData();
+    updateGraphHeader();
+    //currencyHL.setQuoteData();
 
     // Update UI Data
     //updateGraphHeader();
@@ -138,6 +139,13 @@ function handleToggleWatchListClick(e) {
  ***************************************************/
 
 function updateGraphHeader() {
+    APITodayBasicAPPLData( function(data) {
+        currencyHL.setQuoteData(data);
+        updateGraphHeaderElements();
+    });
+}
+
+function updateGraphHeaderElements() {
     document.getElementById("graph-stock-name").innerText = currencyHL.getTicker();
     document.getElementById("graph-price").innerText = currencyHL.getCurrentQuote();
     document.getElementById("graph-change-usd").innerText = currencyHL.getDayChange();
@@ -155,6 +163,14 @@ function updateGraphHeader() {
  ***************************************************/
 
 // Update Graph Function
+function updateGraph() {
+    
+}
+
+function updateGraphElements() {
+
+}
+
 
 /***************************************************
  * Search Bar Functions

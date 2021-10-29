@@ -15,7 +15,6 @@ class Currency {
         this.OneYearTimeSeries = [];
     }
 
-<<<<<<< HEAD
     /**
      * 
      * @param {*} ticker 
@@ -28,8 +27,6 @@ class Currency {
      * 
      * @returns 
      */
-=======
->>>>>>> 05eb198736ca4a26cdcb79610285381edd271f2c
     getTicker() {
         return this.ticker;
     }
@@ -53,18 +50,17 @@ class Currency {
     /**
      * 
      */
-    setQuoteData() {
-        let newData;
-        APITodayBasicAPPLData( function(data) {
-            console.log(data);
-            newData = data;
-        });
+    setQuoteData(newData) {
         this.CurrentQuote = newData["c"];
         this.DayChange = newData["d"];
         this.DayPercentChange = newData["dp"];
         this.DayOpen = newData["o"];
     }
 
+    setOneDayTimeSeriesData(data) {
+
+    }
+    
     /**
      * 
      * @returns 
