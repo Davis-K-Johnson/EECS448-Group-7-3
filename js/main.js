@@ -6,6 +6,11 @@
  ***************************************************/
 
 let currencyHL;
+let currencyWL1;
+let currencyWL2;
+let currencyWL3;
+let currencyWL4;
+let currencyWL5;
 let currencies;
 let BASE_WATCH_LIST = ["APPL", "AMZN", "TSLA", "TMUS", "TWTR"];
 
@@ -40,6 +45,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Currency Objects
     currencyHL = new Currency("APPL");
+    currencyWL1 = new Currency("AMZN");
+    currencyWL2 = new Currency("APPL");
+    currencyWL3 = new Currency("TSLA");
+    currencyWL4 = new Currency("TMUS");
+    currencyWL5 = new Currency("TWTR");
     updateCurrencyHLElements();
     currencies = BASE_WATCH_LIST.map(ticker => new Currency(ticker));
     //currencies.map(c => addToWatchList(c));
@@ -132,6 +142,8 @@ function handleWatchListClick(e) {
  */
 function handleToggleWatchListClick(e) {
     console.log("Clicked graph-list-status element");
+    currencyHL.ticker = "FB"
+    addToWatchList(currencyHL);
 }
 
 /***************************************************
@@ -141,6 +153,7 @@ function handleToggleWatchListClick(e) {
 function updateCurrencyHLElements() {
     updateGraphHeader();
     updateGraph();
+    updateWatchList();
 }
 
 /***************************************************
@@ -200,6 +213,56 @@ function addWatchListElement(currency) {
     watchlist.appendChild(li);
 }
 
+function updateWatchList() {
+    APITodayBasicAMZNData( function(data) {
+        currencyWL1.setQuoteData(data);
+        updateWatchListElements();
+    });
+    APITodayBasicAPPLData( function(data) {
+        currencyWL2.setQuoteData(data);
+        updateWatchListElements();
+    });
+    APITodayBasicTSLAData( function(data) {
+        currencyWL3.setQuoteData(data);
+        updateWatchListElements();
+    });
+    APITodayBasicTMUSData( function(data) {
+        currencyWL4.setQuoteData(data);
+        updateWatchListElements();
+    });
+    APITodayBasicTWTRData( function(data) {
+        currencyWL5.setQuoteData(data);
+        updateWatchListElements();
+    });
+}
+
+function updateWatchListElements() {
+    document.getElementById("watch1-name").innerText = currencyWL1.getTicker();
+    document.getElementById("watch1-price").innerText = currencyWL1.getCurrentQuote();
+    document.getElementById("watch1-change-usd").innerText = currencyWL1.getDayChange();
+    document.getElementById("watch1-change-percent").innerText = currencyWL1.getDayPercentChange();
+
+    document.getElementById("watch2-name").innerText = currencyWL2.getTicker();
+    document.getElementById("watch2-price").innerText = currencyWL2.getCurrentQuote();
+    document.getElementById("watch2-change-usd").innerText = currencyWL2.getDayChange();
+    document.getElementById("watch2-change-percent").innerText = currencyWL2.getDayPercentChange();
+
+    document.getElementById("watch3-name").innerText = currencyWL3.getTicker();
+    document.getElementById("watch3-price").innerText = currencyWL3.getCurrentQuote();
+    document.getElementById("watch3-change-usd").innerText = currencyWL3.getDayChange();
+    document.getElementById("watch3-change-percent").innerText = currencyWL3.getDayPercentChange();
+
+    document.getElementById("watch4-name").innerText = currencyWL4.getTicker();
+    document.getElementById("watch4-price").innerText = currencyWL4.getCurrentQuote();
+    document.getElementById("watch4-change-usd").innerText = currencyWL4.getDayChange();
+    document.getElementById("watch4-change-percent").innerText = currencyWL4.getDayPercentChange();
+
+    document.getElementById("watch5-name").innerText = currencyWL5.getTicker();
+    document.getElementById("watch5-price").innerText = currencyWL5.getCurrentQuote();
+    document.getElementById("watch5-change-usd").innerText = currencyWL5.getDayChange();
+    document.getElementById("watch5-change-percent").innerText = currencyWL5.getDayPercentChange();
+}
+
 // RemoveWatchListElement Function
 
 /***************************************************
@@ -207,7 +270,7 @@ function addWatchListElement(currency) {
  ***************************************************/
 
 // Update Graph Header Function
- function updateGraphHeader() {
+function updateGraphHeader() {
     APITodayBasicAPPLData( function(data) {
         currencyHL.setQuoteData(data);
         updateGraphHeaderElements();
