@@ -13,7 +13,10 @@
 </head>
 
 <body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="js/helper.js"></script>
   <script src="js/APIs.js"></script>
   <script src="js/currency.js"></script>
   <script src="js/search.js"></script>
@@ -42,51 +45,51 @@
             <li>
                 <a id="AMZN" href="#">
                     <span>&ensp;</span>
-                    <span class="stock-name">AMZN</span><span>&emsp;</span>
-                    <span class="stock-price">3,320.37</span><span>&emsp;</span>
-                    <span class="stock-change-usd">-15.18</span><span>&ensp;</span>
-                    <span class="stock-change-percent">(0.46%)</span><span>&ensp;</span>
-                    <span class="stock-timescale">today</span>
+                    <span class="stock-name" id="watch1-name">AMZN</span><span>&emsp;</span>
+                    <span class="stock-price" id="watch1-price">3,320.37</span><span>&emsp;</span>
+                    <span class="stock-change-usd" id="watch1-change-usd">-15.18</span><span>&ensp;</span>
+                    <span class="stock-change-percent" id="watch1-change-percent">(0.46%)</span><span>&ensp;</span>
+                    <span class="stock-timescale" id="watch1-timescale">today</span>
                 </a>
             </li>
             <li>
                 <a id="APPL" href="#">
                     <span>&ensp;</span>
-                    <span class="stock-name">APPL</span><span>&emsp;</span>
-                    <span class="stock-price">3,320.37</span><span>&emsp;</span>
-                    <span class="stock-change-usd">-15.18</span><span>&ensp;</span>
-                    <span class="stock-change-percent">(0.46%)</span><span>&ensp;</span>
-                    <span class="stock-timescale">today</span>
+                    <span class="stock-name" id="watch2-name">AMZN</span><span>&emsp;</span>
+                    <span class="stock-price" id="watch2-price">3,320.37</span><span>&emsp;</span>
+                    <span class="stock-change-usd" id="watch2-change-usd">-15.18</span><span>&ensp;</span>
+                    <span class="stock-change-percent" id="watch2-change-percent">(0.46%)</span><span>&ensp;</span>
+                    <span class="stock-timescale" id="watch2-timescale">today</span>
                 </a>
             </li>
             <li>
                 <a id="TSLA" href="#">
                     <span>&ensp;</span>
-                    <span class="stock-name">TSLA</span><span>&emsp;</span>
-                    <span class="stock-price">3,320.37</span><span>&emsp;</span>
-                    <span class="stock-change-usd">-15.18</span><span>&ensp;</span>
-                    <span class="stock-change-percent">(0.46%)</span><span>&ensp;</span>
-                    <span class="stock-timescale">today</span>
+                    <span class="stock-name" id="watch3-name">AMZN</span><span>&emsp;</span>
+                    <span class="stock-price" id="watch3-price">3,320.37</span><span>&emsp;</span>
+                    <span class="stock-change-usd" id="watch3-change-usd">-15.18</span><span>&ensp;</span>
+                    <span class="stock-change-percent" id="watch3-change-percent">(0.46%)</span><span>&ensp;</span>
+                    <span class="stock-timescale" id="watch3-timescale">today</span>
                 </a>
             </li>
             <li>
                 <a id="TMUS" href="#">
                     <span>&ensp;</span>
-                    <span class="stock-name">TMUS</span><span>&emsp;</span>
-                    <span class="stock-price">3,320.37</span><span>&emsp;</span>
-                    <span class="stock-change-usd">-15.18</span><span>&ensp;</span>
-                    <span class="stock-change-percent">(0.46%)</span><span>&ensp;</span>
-                    <span class="stock-timescale">today</span>
+                    <span class="stock-name" id="watch4-name">AMZN</span><span>&emsp;</span>
+                    <span class="stock-price" id="watch4-price">3,320.37</span><span>&emsp;</span>
+                    <span class="stock-change-usd" id="watch4-change-usd">-15.18</span><span>&ensp;</span>
+                    <span class="stock-change-percent" id="watch4-change-percent">(0.46%)</span><span>&ensp;</span>
+                    <span class="stock-timescale" id="watch4-timescale">today</span>
                 </a>
             </li>
             <li>
                 <a id="TWTR" href="#">
                     <span>&ensp;</span>
-                    <span class="stock-name">TWTR</span><span>&emsp;</span>
-                    <span class="stock-price">3,320.37</span><span>&emsp;</span>
-                    <span class="stock-change-usd">-15.18</span><span>&ensp;</span>
-                    <span class="stock-change-percent">(0.46%)</span><span>&ensp;</span>
-                    <span class="stock-timescale">today</span>
+                    <span class="stock-name" id="watch5-name">AMZN</span><span>&emsp;</span>
+                    <span class="stock-price" id="watch5-price">3,320.37</span><span>&emsp;</span>
+                    <span class="stock-change-usd" id="watch5-change-usd">-15.18</span><span>&ensp;</span>
+                    <span class="stock-change-percent" id="watch5-change-percent">(0.46%)</span><span>&ensp;</span>
+                    <span class="stock-timescale" id="watch5-timescale">today</span>
                 </a>
             </li>
           </ul>
@@ -106,34 +109,34 @@
           <canvas id="graph-canvas"></canvas>
           <div id="graph-buttons">
             <ul>
-                <li>
+                <li id="day-btn">
                     <a href="#">
-                        <i id="day-btn">Day</i>
+                        <i>Day</i>
                     </a>
                 </li>
-                <li>
+                <li id="five-day-btn">
                     <a href="#">
-                        <i id="five-day-btn">5 Day</i>
+                        <i>5 Day</i>
                     </a>
                 </li>
-                <li>
+                <li id="month-btn">
                     <a href="#">
-                        <i id="month-btn">1 Month</i>
+                        <i>1 Month</i>
                     </a>
                 </li>
-                <li>
+                <li id="three-month-btn">
                     <a href="#">
-                        <i id="three-month-btn">3 Months</i>
+                        <i>3 Months</i>
                     </a>
                 </li>
-                <li>
+                <li id="six-month-btn">
                     <a href="#">
-                        <i id="six-month-btn">6 Months</i>
+                        <i>6 Months</i>
                     </a>
                 </li>
-                <li>
+                <li id="year-btn">
                     <a href="#">
-                        <i id="year-btn">Year</i>
+                        <i>Year</i>
                     </a>
                 </li>
             </ul>

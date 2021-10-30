@@ -6,7 +6,13 @@
  ***************************************************/
 
 let currencyHL;
+let currencyWL1;
+let currencyWL2;
+let currencyWL3;
+let currencyWL4;
+let currencyWL5;
 let currencies;
+let BASE_WATCH_LIST = ["APPL", "AMZN", "TSLA", "TMUS", "TWTR"];
 
 /***************************************************
  * Event Listener Functions
@@ -38,11 +44,16 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("graph-list-status").addEventListener("click", (e) => handleToggleWatchListClick(e));
 
     // Currency Objects
-    currencyHL = new Currency("APPL");
-    currencyHL.setQuoteData();
+    currencyHL = new Currency("AAPL");
+    currencyWL1 = new Currency("AMZN");
+    currencyWL2 = new Currency("AAPL");
+    currencyWL3 = new Currency("TSLA");
+    currencyWL4 = new Currency("TMUS");
+    currencyWL5 = new Currency("TWTR");
+    updateCurrencyHLElements();
+    currencies = BASE_WATCH_LIST.map(ticker => new Currency(ticker));
+    //currencies.map(c => addToWatchList(c));
 
-    // Update UI Data
-    //updateGraphHeader();
 });
 
 // Event Listener Function for 1 Day Button
@@ -120,7 +131,7 @@ function handleWatchListClick(e) {
     else if (e.target && e.target.nodeName == "SPAN") { id = e.target.parentElement.id; }
 
     if (id) {
-        console.log("Clicked Ticker element");
+        console.log("Clicked " + id + " element");
     }
 }
 
@@ -131,17 +142,18 @@ function handleWatchListClick(e) {
  */
 function handleToggleWatchListClick(e) {
     console.log("Clicked graph-list-status element");
+    currencyHL.ticker = "FB"
+    addToWatchList(currencyHL);
 }
 
 /***************************************************
  * Highlighted Currency Functions
  ***************************************************/
 
-function updateGraphHeader() {
-    document.getElementById("graph-stock-name").innerText = currencyHL.getTicker();
-    document.getElementById("graph-price").innerText = currencyHL.getCurrentQuote();
-    document.getElementById("graph-change-usd").innerText = currencyHL.getDayChange();
-    document.getElementById("graph-change-percent").innerText = currencyHL.getDayPercentChange();
+function updateCurrencyHLElements() {
+    updateGraphHeader();
+    updateGraph();
+    updateWatchList();
 }
 
 /***************************************************
@@ -150,11 +162,154 @@ function updateGraphHeader() {
 
 // WatchListToggle Function
 
+// AddToWatchList Function
+function addToWatchList(currency) {
+    APITodayQuoteData(currency.getTicker(), function(data) {
+        currency.setQuoteData(data);
+        addWatchListElement(currency);
+    });
+}
+
+function addWatchListElement(currency) {
+    let li = document.createElement("li");
+    let a = document.createElement("a");
+    a.id = currency.getTicker();
+    a.href = "#";
+    let spanSpace = document.createElement("span");
+    let space = document.createTextNode("&ensp;");
+    spanSpace.appendChild(space);
+    let spanName = document.createElement("span");
+    let name = document.createTextNode(currency.getTicker());
+    spanName.className = "stock-name";
+    spanName.appendChild(name);
+    let spanPrice = document.createElement("span");
+    let price = document.createTextNode(currency.getCurrentQuote());
+    spanPrice.className = "stock-price";
+    spanPrice.appendChild(price);
+    let spanChangeUSD = document.createElement("span");
+    let changeUSD = document.createTextNode(currency.getDayChange());
+    spanChangeUSD.className = "stock-change-usd";
+    spanChangeUSD.appendChild(changeUSD);
+    let spanChangePercent = document.createElement("span");
+    let changePercent = document.createTextNode(currency.getDayPercentChange());
+    spanChangePercent.className = "stock-change-percent";
+    spanChangePercent.appendChild(changePercent);
+    let spanTimescale = document.createElement("span");
+    let timescale = document.createTextNode("today");
+    spanTimescale.className = "stock-timescale";
+    spanTimescale.appendChild(timescale);
+    a.appendChild(spanSpace);
+    a.appendChild(spanName);
+    a.appendChild(spanSpace);
+    a.appendChild(spanPrice);
+    a.appendChild(spanSpace);
+    a.appendChild(spanChangeUSD);
+    a.appendChild(spanSpace);
+    a.appendChild(spanChangePercent);
+    a.appendChild(spanSpace);
+    a.appendChild(spanTimescale);
+    li.appendChild(a);
+    let watchlist = document.getElementById("watch-list");
+    watchlist.appendChild(li);
+}
+
+function updateWatchList() {
+    APITodayBasicAMZNData( function(data) {
+        currencyWL1.setQuoteData(data);
+        updateWatchListElements();
+    });
+    APITodayBasicAPPLData( function(data) {
+        currencyWL2.setQuoteData(data);
+        updateWatchListElements();
+    });
+    APITodayBasicTSLAData( function(data) {
+        currencyWL3.setQuoteData(data);
+        updateWatchListElements();
+    });
+    APITodayBasicTMUSData( function(data) {
+        currencyWL4.setQuoteData(data);
+        updateWatchListElements();
+    });
+    APITodayBasicTWTRData( function(data) {
+        currencyWL5.setQuoteData(data);
+        updateWatchListElements();
+    });
+}
+
+function updateWatchListElements() {
+    document.getElementById("watch1-name").innerText = currencyWL1.getTicker();
+    document.getElementById("watch1-price").innerText = currencyWL1.getCurrentQuote();
+    document.getElementById("watch1-change-usd").innerText = currencyWL1.getDayChange();
+    document.getElementById("watch1-change-percent").innerText = currencyWL1.getDayPercentChange();
+
+    document.getElementById("watch2-name").innerText = currencyWL2.getTicker();
+    document.getElementById("watch2-price").innerText = currencyWL2.getCurrentQuote();
+    document.getElementById("watch2-change-usd").innerText = currencyWL2.getDayChange();
+    document.getElementById("watch2-change-percent").innerText = currencyWL2.getDayPercentChange();
+
+    document.getElementById("watch3-name").innerText = currencyWL3.getTicker();
+    document.getElementById("watch3-price").innerText = currencyWL3.getCurrentQuote();
+    document.getElementById("watch3-change-usd").innerText = currencyWL3.getDayChange();
+    document.getElementById("watch3-change-percent").innerText = currencyWL3.getDayPercentChange();
+
+    document.getElementById("watch4-name").innerText = currencyWL4.getTicker();
+    document.getElementById("watch4-price").innerText = currencyWL4.getCurrentQuote();
+    document.getElementById("watch4-change-usd").innerText = currencyWL4.getDayChange();
+    document.getElementById("watch4-change-percent").innerText = currencyWL4.getDayPercentChange();
+
+    document.getElementById("watch5-name").innerText = currencyWL5.getTicker();
+    document.getElementById("watch5-price").innerText = currencyWL5.getCurrentQuote();
+    document.getElementById("watch5-change-usd").innerText = currencyWL5.getDayChange();
+    document.getElementById("watch5-change-percent").innerText = currencyWL5.getDayPercentChange();
+}
+
+// RemoveWatchListElement Function
+
 /***************************************************
- * Graphing Functions
+ * Graph Section Functions
  ***************************************************/
 
+// Update Graph Header Function
+function updateGraphHeader() {
+    APITodayBasicAPPLData( function(data) {
+        currencyHL.setQuoteData(data);
+        updateGraphHeaderElements();
+    });
+}
+
+function updateGraphHeaderElements() {
+    document.getElementById("graph-stock-name").innerText = currencyHL.getTicker();
+    document.getElementById("graph-price").innerText = currencyHL.getCurrentQuote();
+    document.getElementById("graph-change-usd").innerText = currencyHL.getDayChange();
+    document.getElementById("graph-change-percent").innerText = currencyHL.getDayPercentChange();
+}
+
 // Update Graph Function
+function updateGraph() {
+    APIIntradayAPPLData( function(data) {
+        currencyHL.setOneDayTimeSeriesData(data);
+        console.log("updateGraph function!");
+        console.log(currencyHL.getOneDayTimeSeriesData());
+        updateGraphElements();
+    })
+}
+
+function updateGraphElements() {
+    var ctx = document.getElementById("graph-canvas").getContext("2d");
+
+    var myChart = new Chart(ctx, {
+        type: 'line',
+        options: {
+            scales: {
+            xAxes: [{
+                type: 'time',
+            }]
+            }
+        },
+        data: currencyHL.getOneDayTimeSeriesData()
+    });
+}
+
 
 /***************************************************
  * Search Bar Functions

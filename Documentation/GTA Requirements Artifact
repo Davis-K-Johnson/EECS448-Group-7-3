@@ -1,0 +1,24 @@
+Group 7 is wanting to create a Javascript desktop application that is a stock/crypto/online token tracking dashboard. The application will have three pages:
+
+The Dashboard
+A collection of the users “favorited currencies” (haven’t found a name yet to generalize them all).
+Each currencies section will have a graph that can be toggled between 1 day, 1 week, 1 month, 3 months, 6 months, and 1 year.
+Each section will also allow the user to set a price point for that currency and will be sent an email notification if it rises or falls to that point.
+Search Page
+This page will allow the user to browse all stocks, crypto, and online tokens.
+They will be shown a graph of the currency with the same timeframes of the dashboard.
+The user can also add the currency to their favorites on the dashboard.
+Biggest Winners/Losers
+This page will show top 10 biggest winners and losers for stocks and cryptos for the current day.
+ 
+
+We will be using HTML to create the GUI elements. We are also going to use Finnhub's API to retrieve stock and crypto data, and Blizzards api to track WoW tokens.
+
+ 
+
+In Project 3, we are wanting to get the GUI set up for the graphs and multiple pages. Wewill be implementing
+a very basic class for the api’s as we will just use one stock to gather template time series data.
+
+ 
+
+In Project 4, we will fully build the api classes to gather any data needed. As well as, implementing the price point tracking and email notifications.

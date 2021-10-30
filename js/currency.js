@@ -1,9 +1,7 @@
 class Currency {
     constructor(ticker) {
         this.ticker = ticker;
-        console.log("constructor");
         this.CurrentQuote = 0.0;
-        console.log(this.CurrentQuote);
         this.DayChange = 0.0;
         this.DayPercentChange = 0.0;
         this.DayOpen = 0.0;
@@ -15,7 +13,6 @@ class Currency {
         this.OneYearTimeSeries = [];
     }
 
-<<<<<<< HEAD
     /**
      * 
      * @param {*} ticker 
@@ -28,8 +25,6 @@ class Currency {
      * 
      * @returns 
      */
-=======
->>>>>>> 05eb198736ca4a26cdcb79610285381edd271f2c
     getTicker() {
         return this.ticker;
     }
@@ -47,22 +42,37 @@ class Currency {
     }
 
     getDayPercentChange() {
-        return this.DayPercentChange;
+        let temp = "(" +this.DayPercentChange + "%)";
+        return temp;
     }
 
     /**
      * 
      */
-    setQuoteData() {
-        let newData;
-        APITodayBasicAPPLData( function(data) {
-            console.log(data);
-            newData = data;
-        });
+    setQuoteData(newData) {
         this.CurrentQuote = newData["c"];
         this.DayChange = newData["d"];
         this.DayPercentChange = newData["dp"];
         this.DayOpen = newData["o"];
+    }
+
+    setOneDayTimeSeriesData(data) {
+        let closes = data["c"];
+        let times = data["t"];
+        let isos = times.map(t => UNIXtoISOConversion(t));
+        let gData = closes.map((c, i) => {return {t:isos[i], y:c}});
+        let bgc = CreateBackgroundColors(gData.length);
+        let bc = CreateBorderColors(gData.length);
+        this.OneDayTimeSeries = {
+            labels: isos,
+            datasets: [{
+            label: this.ticker,
+            data: gData,
+            backgroundColor: bgc,
+            borderColor: bc,
+            borderWidth: 1
+            }]
+        };
     }
 
     /**
@@ -70,9 +80,7 @@ class Currency {
      * @returns 
      */
     getOneDayTimeSeriesData() {
-        // Redo once APIs.js has been updated
-        data = APIIntradayAPPLData();
-        return this.OneDayTimeSeriesData;
+        return this.OneDayTimeSeries;
     }
 
     /**
