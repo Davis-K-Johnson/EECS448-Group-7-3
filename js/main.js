@@ -44,9 +44,9 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("graph-list-status").addEventListener("click", (e) => handleToggleWatchListClick(e));
 
     // Currency Objects
-    currencyHL = new Currency("APPL");
+    currencyHL = new Currency("AAPL");
     currencyWL1 = new Currency("AMZN");
-    currencyWL2 = new Currency("APPL");
+    currencyWL2 = new Currency("AAPL");
     currencyWL3 = new Currency("TSLA");
     currencyWL4 = new Currency("TMUS");
     currencyWL5 = new Currency("TWTR");
