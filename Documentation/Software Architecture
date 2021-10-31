@@ -1,1 +1,22 @@
+For this project we're using 3-tier architecture. Working with a service-oriented paradigm, it's
+a natural fit since it includes the client side GUI, the API, and the interface between them.
+Unfortunately, since it's an API independent from our project, we can't work n it ourselves,
+but if we were taking this to a larger scale we'd obviously want to make our own database.
 
+Keeping with the architecture, the two sections we have control over (the Ui and logic tier) are
+entirely modular. Our current UI is using HTML and the logic is Javascript since our team knows
+those 2 best.
+
+However, we were considering using Python and PySide for the project before, and if for some
+reason we wanted to change those going into project 4, we might only need to change one aspect.
+There would be some inconsistencies in the code connecting the logic and UI, but it would be much
+simpler than throwing everything out and starting from scratch.
+
+It also allowed us to get the vast majority of our UI working for the first deliverable milstone
+without implementing how the entire project was going to work together. This way, we only needed
+to work on the aspects we needed to implement (the graph and data for one currency) and could
+temporarily hardcode the logic layer for the prototype.
+
+Then when we move on to the more complex version in project 4, the UI layer is already nearly
+complete and will only need minor changes to work with out new framwork. That way we can focus our
+efforts on the back and as a team and reduce time figuring out the UI.
