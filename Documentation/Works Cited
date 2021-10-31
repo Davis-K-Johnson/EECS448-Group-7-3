@@ -1,0 +1,2 @@
+The current browse function in search.js is copied almost verbatim from the Finnhub API's example code.
+It's not used in the current prototype and was put there mainly so i could figure out how it works.
