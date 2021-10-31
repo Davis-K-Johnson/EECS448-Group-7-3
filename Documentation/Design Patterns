@@ -1,1 +1,17 @@
+We don't have it set up right now, but our currencies are going to be set up as a variety of
+different objects. Naturally, a builder will be a great fit for that, as we can take in data
+to the function and pump out various currency objects that can all be used for the other classes.
+This will make it very easy to use the data in a compact, nonintensive way. Instead of retrieving
+the data we need from the APi on every function call, we can do it once and store it as an object
+for easier access.
 
+The search bar we're implementing is an example of an interpreter. it will take a group of symbols
+the user types and change it into useful information that it can use to look up what they want. In
+this case, a lot of the work is being performed by Finnhub's search feature, but we need to develop
+an interface to convert our search bar input into a command for it.
+
+As a result of using an API for the lowest level of our 3-tier architecture, we have many different
+facades as well. As mentioned in regards to the search bar, we'll be using calls to several Finnhub
+API functions, which are doing a lot of the work. Our main.js program itself is mostly litener events
+that wait for user input and then delegate a task to another class. It's quite possibly our most used
+design pattern and one of the main elements of the structure.
