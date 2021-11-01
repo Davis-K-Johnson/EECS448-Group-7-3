@@ -156,6 +156,56 @@ function updateCurrencyHLElements() {
     updateWatchList();
 }
 
+function updateColors() {
+    if(currencyHL.getDayChange() > -0.00001){
+        document.getElementById("graph-change-usd").style.color = "#00CC3A";
+        document.getElementById("graph-change-percent").style.color = "#00CC3A";
+    }
+    else {
+        document.getElementById("graph-change-usd").style.color = "#FF0D2C";
+        document.getElementById("graph-change-percent").style.color = "#FF0D2C";
+    }
+    if(currencyWL1.getDayChange() > 0){
+        document.getElementById("watch1-change-usd").style.color = "#00CC3A";
+        document.getElementById("watch1-change-percent").style.color = "#00CC3A";
+    }
+    else {
+        document.getElementById("watch1-change-usd").style.color = "#FF0D2C";
+        document.getElementById("watch1-change-percent").style.color = "#FF0D2C";
+    }
+    if(currencyWL2.getDayChange() > 0){
+        document.getElementById("watch2-change-usd").style.color = "#00CC3A";
+        document.getElementById("watch2-change-percent").style.color = "#00CC3A";
+    }
+    else {
+        document.getElementById("watch2-change-usd").style.color = "#FF0D2C";
+        document.getElementById("watch2-change-percent").style.color = "#FF0D2C";
+    }
+    if(currencyWL3.getDayChange() > 0){
+        document.getElementById("watch3-change-usd").style.color = "#00CC3A";
+        document.getElementById("watch3-change-percent").style.color = "#00CC3A";
+    }
+    else {
+        document.getElementById("watch3-change-usd").style.color = "#FF0D2C";
+        document.getElementById("watch3-change-percent").style.color = "#FF0D2C";
+    }
+    if(currencyWL4.getDayChange() > 0){
+        document.getElementById("watch4-change-usd").style.color = "#00CC3A";
+        document.getElementById("watch4-change-percent").style.color = "#00CC3A";
+    }
+    else {
+        document.getElementById("watch4-change-usd").style.color = "#FF0D2C";
+        document.getElementById("watch4-change-percent").style.color = "#FF0D2C";
+    }
+    if(currencyWL5.getDayChange() > 0){
+        document.getElementById("watch5-change-usd").style.color = "#00CC3A";
+        document.getElementById("watch5-change-percent").style.color = "#00CC3A";
+    }
+    else {
+        document.getElementById("watch5-change-usd").style.color = "#FF0D2C";
+        document.getElementById("watch5-change-percent").style.color = "#FF0D2C";
+    }
+}
 /***************************************************
  * Watch List Functions
  ***************************************************/
@@ -216,22 +266,27 @@ function addWatchListElement(currency) {
 function updateWatchList() {
     APITodayBasicAMZNData( function(data) {
         currencyWL1.setQuoteData(data);
+        updateColors();
         updateWatchListElements();
     });
     APITodayBasicAPPLData( function(data) {
         currencyWL2.setQuoteData(data);
+        updateColors();
         updateWatchListElements();
     });
     APITodayBasicTSLAData( function(data) {
         currencyWL3.setQuoteData(data);
+        updateColors();
         updateWatchListElements();
     });
     APITodayBasicTMUSData( function(data) {
         currencyWL4.setQuoteData(data);
+        updateColors();
         updateWatchListElements();
     });
     APITodayBasicTWTRData( function(data) {
         currencyWL5.setQuoteData(data);
+        updateColors();
         updateWatchListElements();
     });
 }

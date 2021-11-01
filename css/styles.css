@@ -220,12 +220,10 @@ header .header-settings a:hover{
 }
 
 #watch-div ul li .stock-change-usd{
-    color: #FF0D2C;
     font-size: 24px;
 }
 
 #watch-div ul li .stock-change-percent{
-    color: #FF0D2C;
     font-size: 24px;
 }
 
@@ -273,12 +271,10 @@ header .header-settings a:hover{
 }
 
 #graph-viewer #graph-header #graph-change-usd{
-    color: #00CC3A;
     user-select: none;
 }
 
 #graph-viewer #graph-header #graph-change-percent{
-    color: #00CC3A;
     user-select: none;
 }
 
@@ -427,12 +423,10 @@ header .header-settings a:hover{
 }
 
 #gain-lose ul li .stock-change-usd{
-    color: #FF0D2C;
     font-size: 24px;
 }
 
 #gain-lose ul li .stock-change-percent{
-    color: #FF0D2C;
     font-size: 24px;
 }
 
